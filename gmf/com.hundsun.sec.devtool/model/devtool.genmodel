@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.hundsun.sec.devtool/src"
+    modelPluginID="com.hundsun.sec.devtool" modelName="Devtool" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false">
+  <foreignModel>devtool.ecore</foreignModel>
+  <genPackages prefix="Devtool" basePackage="com.hundsun.sec" disposableProviderFactory="true"
+      ecorePackage="devtool.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="devtool.ecore#//CConditionType">
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CConditionType/TOP"/>
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CConditionType/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CConditionType/OR"/>
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CConditionType/NOT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="devtool.ecore#//CompareType">
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CompareType/EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CompareType/NOTEQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CompareType/LARGER"/>
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CompareType/LARGEREQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CompareType/SMALLER"/>
+      <genEnumLiterals ecoreEnumLiteral="devtool.ecore#//CompareType/SMALLEREQUAL"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="devtool.ecore#//ConditionType"/>
+    <genDataTypes ecoreDataType="devtool.ecore#//CompareTypeObject"/>
+    <genClasses image="false" ecoreClass="devtool.ecore#//IComponent"/>
+    <genClasses ecoreClass="devtool.ecore#//Control">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//Control/condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference devtool.ecore#//Control/ifFlow"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference devtool.ecore#//Control/elseFlow"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference devtool.ecore#//Control/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference devtool.ecore#//Function/componets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference devtool.ecore#//Function/start"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//GeneralComponet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference devtool.ecore#//GeneralComponet/next"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//FunctionCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//FunctionCall/name"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//Start"/>
+    <genClasses ecoreClass="devtool.ecore#//End"/>
+    <genClasses image="false" ecoreClass="devtool.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//Condition/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference devtool.ecore#//Condition/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//CompositeCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//CompositeCondition/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference devtool.ecore#//CompositeCondition/children"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//SimpleCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//SimpleCondition/bool"/>
+    </genClasses>
+    <genClasses ecoreClass="devtool.ecore#//CompareCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//CompareCondition/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//CompareCondition/firstValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute devtool.ecore#//CompareCondition/secondValue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

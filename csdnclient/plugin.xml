@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="org.dollyn.csdnclient.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="org.dollyn.csdnclient.ClientDefaultPerspective"
+            id="org.dollyn.csdnclient.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.dollyn.csdnclient.csdnclient"
+            name="CSDN Client">
+      </category>
+      <view
+            category="org.dollyn.csdnclient.csdnclient"
+            class="org.dollyn.csdnclient.views.UsersView"
+            id="org.dollyn.csdnclient.userview"
+            name="Users">
+      </view>
+      <view
+            category="org.dollyn.csdnclient.csdnclient"
+            class="org.dollyn.csdnclient.views.ForumsView"
+            id="org.dollyn.csdnclient.forumsview"
+            name="Forums">
+      </view>
+      <view
+            class="org.dollyn.csdnclient.views.TopicsView"
+            id="org.dollyn.csdnclient.topicsview"
+            name="Topics">
+      </view>
+            <view
+            id="org.eclipse.ui.examples.rcp.browser.browserView"
+            name="%views.browser.name"
+            icon="icons/eclipse.gif"
+            class="org.eclipse.ui.examples.rcp.browser.BrowserView"
+            category="org.eclipse.ui.examples.rcp.browser"
+            allowMultiple="true"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="org.dollyn.csdnclient.actionSet"
+            label="Sample Action Set"
+            visible="true">
+         <menu
+               id="sampleMenu"
+               label="Sample &amp;Menu">
+            <separator
+                  name="sampleGroup">
+            </separator>
+         </menu>
+         <action
+               class="org.dollyn.csdnclient.actions.SampleAction"
+               icon="icons/sample.gif"
+               id="org.dollyn.csdnclient.actions.SampleAction"
+               label="&amp;Sample Action"
+               menubarPath="sampleMenu/sampleGroup"
+               toolbarPath="sampleGroup"
+               tooltip="Hello, Eclipse world">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="org.dollyn.csdnclient.refreshtopics"
+            targetID="org.dollyn.csdnclient.topicsview">
+         <action
+               class="org.dollyn.csdnclient.actions.RefreshTopicsAction"
+               icon="icons/nav_refresh.gif"
+               id="org.dollyn.csdnclient.action1"
+               label="Refresh"
+               menubarPath="addtions"
+               style="push"
+               toolbarPath="addtions">
+         </action>
+      </viewContribution>
+   </extension>
+   <extension
+         id="cc"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.dollyn.csdnclient.application"
+            name="CC">
+         <property
+               name="appName"
+               value="CC">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

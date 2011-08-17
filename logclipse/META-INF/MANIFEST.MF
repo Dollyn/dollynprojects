@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: logclipse
+Bundle-SymbolicName: logclipse;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: logclipse.jar,
+ commons-logging-1.1.1.jar,
+ log4j-1.2.15.jar
+Export-Package: aaa,
+ logclipse
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.4.0",
+ org.eclipse.ui;bundle-version="3.4.2",
+ org.eclipse.ui.console;bundle-version="3.3.1",
+ org.junit4
+Bundle-Activator: logclipse.Logclipse

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/demo.flow/src"
+    modelPluginID="demo.flow" modelName="Flow" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>flow.ecore</foreignModel>
+  <genPackages prefix="Flow" disposableProviderFactory="true" ecorePackage="flow.ecore#/">
+    <genClasses image="false" ecoreClass="flow.ecore#//INode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flow.ecore#//INode/name"/>
+    </genClasses>
+    <genClasses ecoreClass="flow.ecore#//Flow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flow.ecore#//Flow/nodes"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference flow.ecore#//Flow/beginNode"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//Flow/endNode"/>
+    </genClasses>
+    <genClasses ecoreClass="flow.ecore#//CheckNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//CheckNode/ifFlow"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//CheckNode/elseFlow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flow.ecore#//CheckNode/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="flow.ecore#//NormalNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flow.ecore#//NormalNode/next"/>
+    </genClasses>
+    <genClasses ecoreClass="flow.ecore#//BeginNode"/>
+    <genClasses ecoreClass="flow.ecore#//EndNode"/>
+    <genClasses ecoreClass="flow.ecore#//ExecuteNode"/>
+    <genClasses ecoreClass="flow.ecore#//InfoFromUser"/>
+    <genClasses ecoreClass="flow.ecore#//InfoToUser"/>
+  </genPackages>
+</genmodel:GenModel>

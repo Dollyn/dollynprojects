@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="dollyn.configure.runner.actionSet"
+            label="configure runner"
+            visible="true">
+         <action
+               class="dollyn.configure.runner.ConfigAction"
+               icon="icons/config.gif"
+               id="dollyn.configure.runner.actionconfig"
+               label="config"
+               style="push"
+               toolbarPath="Normal/additions">
+         </action>
+         <action
+               class="dollyn.configure.runner.RestartAction"
+               icon="icons/restart.gif"
+               id="dollyn.configure.runner.actionrestart"
+               label="restart"
+               style="push"
+               toolbarPath="Normal/additions">
+         </action>
+         <action
+               class="dollyn.configure.runner.StopAction"
+               icon="icons/stop.gif"
+               id="dollyn.configure.runner.actionstop"
+               label="stop"
+               style="push"
+               toolbarPath="Normal/additions">
+         </action>
+         <action
+               class="dollyn.configure.runner.RunAction"
+               icon="icons/run.gif"
+               id="dollyn.configure.runner.actionstart"
+               label="start"
+               style="push"
+               toolbarPath="Normal/additions">
+         </action>
+         <menu
+               id="dollyn.configure.runner.menu"
+               label="configure">
+            <groupMarker
+                  name="start">
+            </groupMarker>
+            <groupMarker
+                  name="config">
+            </groupMarker>
+         </menu>
+      </actionSet>
+   </extension>
+
+</plugin>

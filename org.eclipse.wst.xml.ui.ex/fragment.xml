@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<fragment>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPartEx"
+            contributorClass="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorActionBarContributorEx"
+            default="false"
+            extensions="xml"
+            icon="tnames_co(1).gif"
+            id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPartEx"
+            name="XML编辑器（扩展）">
+      </editor>
+   </extension>
+
+</fragment>

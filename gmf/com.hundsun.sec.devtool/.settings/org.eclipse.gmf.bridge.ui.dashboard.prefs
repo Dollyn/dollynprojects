@@ -1,0 +1,7 @@
+#Tue Jun 03 02:26:51 GMT 2008
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/com.hundsun.sec.devtool/model/devtool.genmodel
+gmf_dashboard/domainModel=platform\:/resource/com.hundsun.sec.devtool/model/devtool.ecore
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/com.hundsun.sec.devtool/model/devtool.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/com.hundsun.sec.devtool/model/devtool.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/com.hundsun.sec.devtool/model/devtool.gmftool

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="ProxyEditorAdvisorApplication">
+      <application>
+         <run class="proxy.presentation.ProxyEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <perspective
+            name="%_UI_Perspective_label"
+            class="proxy.presentation.ProxyEditorAdvisor$Perspective"
+            id="proxy.presentation.ProxyEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="proxy.presentation.ProxyEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="proxy.presentation.ProxyEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <key
+            commandId="proxy.presentation.ProxyEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="proxy.presentation.ProxyEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="%_UI_ProxyEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="ProxyEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="proxy.presentation.ProxyEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="proxy.presentation.ProxyEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="proxy.presentation.ProxyEditorAdvisorOpenURICommand"
+               class="proxy.presentation.ProxyEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="proxy.presentation.ProxyEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="proxy.presentation.ProxyEditorAdvisorOpenCommand"
+               class="proxy.presentation.ProxyEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="proxy.presentation.ProxyEditorAdvisorOpenAction"/>
+         <action
+               id="ProxyCollector.editor.load"
+               label="Load"
+               style="push">
+         </action>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="%_UI_ProxyModelWizard_ActionSet_label"
+            visible="true"
+            id="proxy.presentation.ProxyActionBarContributorActionSet">
+         <action
+               label="%_UI_ProxyModelWizard_label"
+               class="proxy.presentation.ProxyActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="proxy.presentation.ProxyActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="proxy.presentation.ProxyEditorID"
+            name="%_UI_ProxyEditor_label"
+            icon="icons/full/obj16/ProxyModelFile.gif"
+            extensions="proxy"
+            class="proxy.presentation.ProxyEditor"
+            contributorClass="proxy.presentation.ProxyActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

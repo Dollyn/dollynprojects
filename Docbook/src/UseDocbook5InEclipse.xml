@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d:book xmlns:d="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://docbook.org/ns/docbook ../xsd/docbook.xsd ">
+	<d:title>在Eclipse中结合Ant使用DocBook5.0</d:title>
+	<d:info>
+		<d:author>
+			<d:personname>Dollyn</d:personname>
+			<d:email>dollyn.sun@gmail.com</d:email>
+		</d:author>
+		<d:copyright>
+			<d:year>2009</d:year>
+		</d:copyright>
+	</d:info>
+	<!-- d:chapter label="testlabel" xreflabel="xref" vendor="ven">
+		<d:title>Chapter1 title</d:title>
+	</d:chapter-->
+	<d:article d:title="artical title">
+		<d:info>
+		</d:info>
+	</d:article>
+</d:book>

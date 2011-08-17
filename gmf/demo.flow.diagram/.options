@@ -1,0 +1,7 @@
+# Tracing options for the demo.flow.diagram plug-in
+
+# Common issues
+demo.flow.diagram/debug=false
+
+# Visual IDs
+demo.flow.diagram/debug/visualID=false

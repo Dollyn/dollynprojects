@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension point="org.eclipse.ui.editors">
+      <editor name="GEF Shapes Example"
+              extensions="shapes"
+              icon="shapes.gif"
+              default="true"
+              class="org.eclipse.gef.examples.shapes.ShapesEditor"
+              contributorClass="org.eclipse.gef.examples.shapes.ShapesEditorActionBarContributor"
+              id="GEF Shapes Editor">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+      <category name="Examples"
+                parentCategory="org.eclipse.ui.Examples"
+                id="org.eclipse.gef.examples"/>
+      <wizard name="Shapes Diagram"
+              icon="shapes.gif"
+              category="org.eclipse.ui.Examples/org.eclipse.gef.examples"
+              class="org.eclipse.gef.examples.shapes.ShapesCreationWizard"
+              id="org.eclipse.gef.examples.shapes.ShapesCreationWizard">
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="GEF Shapes Editor">
+         <propertyCategory
+               category="test.shapes"></propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="GEF Shapes Editor">
+         <propertyTab
+               category="test.shapes"
+               id="testtab"
+               image="shapes.gif"
+               label="Test">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="GEF Shapes Editor">
+         <propertySection
+               class="org.eclipse.gef.examples.shapes.propertysheets.TestPropertySheetSection"
+               id="org.eclipse.gef.examples.shapes.propertySection1"
+               tab="testtab">
+            <input
+                  type="java.lang.Object">
+            </input>
+         </propertySection>
+      </propertySections>
+   </extension>
+</plugin>

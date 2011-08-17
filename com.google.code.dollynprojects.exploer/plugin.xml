@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="com.google.code.dollynprojects.exploer.openinexplorer"
+            objectClass="org.eclipse.core.resources.IResource">
+         <action
+               class="com.google.code.dollynprojects.exploer.OpenInExplorerAction"
+               id="com.google.code.dollynprojects.exploer.action1"
+               label="%action.label.0"
+               menubarPath="com.google.code.dollynprojects.dollyntools/menu2/addtions">
+         </action>
+         <menu
+               id="com.google.code.dollynprojects.dollyntools"
+               label="%DollynToolsLabel"
+               path="additions">
+            <separator
+                  name="sp">
+            </separator>
+            <separator
+                  name="additions">
+            </separator>
+         </menu>
+         <menu
+               id="menu2"
+               label="MENU2"
+               path="com.google.code.dollynprojects.dollyntools/sp">
+            <separator
+                  name="sp2">
+            </separator>
+            <separator
+                  name="addtions">
+            </separator>
+         </menu>
+      </objectContribution>
+   </extension>
+
+</plugin>

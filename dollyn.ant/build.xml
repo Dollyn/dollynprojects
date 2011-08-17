@@ -1,0 +1,37 @@
+
+<project name="dollyn.ant" default = "myTarget">
+	
+	<!--=====================================================
+		初始化的target，被其他所有的target依赖。
+	======================================================-->
+	<target name="init">
+		<echo>Init.</echo>
+		<!-- Build-in properties -->
+		<echo>basedir is : ${basedir}}</echo>
+		<echo>Ant version is : ${ant.version}</echo>
+	</target>
+	
+	<!--=====================================================
+		依赖一个target，并判断另个target的多个条件。
+	======================================================-->
+	<target name="myTarget" depends="init,myTarget.check" if="myTarget.run">
+	    <echo>Files foo.txt and bar.txt are present.</echo>
+	</target>
+	
+	<!--=====================================================
+		被依赖的target条件不满足的话，不影响此target的执行。依赖只是要被依赖的先执行。
+	======================================================-->
+	<target name="test" depends="myTarget">
+		<echo>test</echo>
+	</target>
+	
+	<target name="myTarget.check">
+	    <condition property="myTarget.run">
+	        <and>
+	            <!--available file="foo.txt"/-->
+	            <available file="bar.txt"/>
+	        </and>
+	    </condition>
+	</target>
+
+</project>

@@ -1,0 +1,5 @@
+ij> connect 'jdbc:derby:csdnclient';
+ij> select * from users;
+ID                  |PASSWORD  |ISDEFAULT  
+-------------------------------------------
+dollyn              |19840926  |1          

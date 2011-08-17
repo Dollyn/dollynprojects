@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Xml Extension Fragment
+Bundle-SymbolicName: org.eclipse.wst.xml.ui.ex;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: Dollyn
+Fragment-Host: org.eclipse.wst.xml.ui
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

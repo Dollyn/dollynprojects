@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<store>
+	<author name="author1">
+		<book name="book11"></book>
+		<book name="book12"></book>
+		<book name="book13"></book>
+	</author>
+	<author name="author2">
+		<book name="book21"></book>
+		<book name="book22"></book>
+		<book name="book23"></book>
+	</author>
+	<author name="author3">
+		<book name="book31"></book>
+		<book name="book32"></book>
+		<book name="book33"></book>
+	</author>
+</store>

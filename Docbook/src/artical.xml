@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<db:article xmlns:db="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://docbook.org/ns/docbook ../xsd/docbook.xsd " version="5.0">
+	<db:info>
+		<db:title>Artical title</db:title>
+		<db:author>
+			<db:personname>Dollyn</db:personname>
+			<db:email>dollyn.sun@gmail.com</db:email>
+		</db:author>
+	</db:info>
+	<db:section xml:id="intro">
+		<db:title>Section1 title</db:title>
+		<db:para/>
+	</db:section>
+	<db:section Attribute=""><Element/>
+	</db:section>
+</db:article>
