@@ -1,0 +1,20 @@
+<html>
+  <body>
+    {% for note in notes %}
+      {% if note.author %}
+        <b>{{ note.author.nickname }}</b> wrote:
+      {% else %}
+        An anonymous person wrote:
+      {% endif %}
+      <blockquote>{{ note.content|escape }}</blockquote>
+    {% endfor %}
+
+    <form action="/notes/post" method="post">
+      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+      <div><input type="submit" value="Sign Guestbook"></div>
+    </form>
+
+    <a href="{{ url }}">{{ url_linktext }}</a>
+
+  </body>
+</html>
