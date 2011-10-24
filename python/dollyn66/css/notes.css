@@ -1,0 +1,15 @@
+.note {
+	border: 2px solid #EEE;
+	border-radius: 10px;
+	background-color: #EEE;
+	margin-bottom: 5px;
+}
+
+.note_footer {
+	text-align: right;
+	border-radius: 10px;
+}
+
+.note:HOVER {
+	border: 2px solid #68e;
+}

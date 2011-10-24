@@ -10,6 +10,8 @@ handlers:
 
 - url: /notes/.*
   script: note.py
+  login: required
+  secure: always
 
 - url: /cates/.*
   script: cates.py

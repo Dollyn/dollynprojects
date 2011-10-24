@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<link rel="stylesheet" href="/css/notes.css" type="text/css">
+</head>
+<body>
+	<header id='page_header'>
+		<h1>My Notes...</h1>
+		<!-- 
+		<nav>
+			<ul>
+				<li>AAA</li>
+				<li>BBB</li>
+				<li>CCC</li>
+			</ul>
+		</nav>
+		 -->
+	</header>
+	
+	<section id="notes">
+	    {% for note in notes %}
+	    <article class="note">
+	      <div>
+	      	<blockquote>{{ note.content|escape }}</blockquote>
+	      </div>
+	      <footer class="note_footer">
+		      {% if note.author %}
+		        By <b>{{ note.author.nickname }}</b>.
+		      {% else %}
+		        By anonymous person.
+		      {% endif %}
+		      {{note.date}}
+	      </footer>
+	    </article>
+		{% endfor %}
+	</section>
+
+    <form action="/notes/post" method="post">
+      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+      <div><input type="submit" value="Commit"></div>
+    </form>
+
+    <!-- a href="{{ url }}">{{ url_linktext }}</a-->
+
+	<footer id='page_footer'>
+		<p>&copy; Dollyn(dollyn.sun@gmail.com) 2011-2011</p>
+	</footer>
+	
+</body>
+</html>
