@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+import com.tencent.weibo.api.Statuses_API;
 import com.tencent.weibo.api.T_API;
 import com.tencent.weibo.beans.OAuth;
 import com.tencent.weibo.utils.OAuthClient;
@@ -107,10 +109,28 @@ public class TestAPI2 {
 //		String response = private_API.add(oAuth, WeiBoConst.ResultType.ResultType_Json, "hello", "127.0.0.1", "", "", "BlueX_Chan");
 //		System.out.println("response:" + response);
 
-		T_API t_api = new T_API();
+//		T_API t_api = new T_API();
+//		try {
+//			String str = t_api.show(oAuth, WeiBoConst.ResultType.ResultType_Json, "107557039679209");
+//			System.out.println(str);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		Statuses_API sapi = new Statuses_API();
 		try {
-			String str = t_api.show(oAuth, WeiBoConst.ResultType.ResultType_Json, "107557039679209");
-			System.out.println(str);
+			String timeline = sapi.home_timeline(oAuth,  WeiBoConst.ResultType.ResultType_Json, WeiBoConst.PageFlag.FIRST_PAGE, "0", "0");
+			System.out.println(timeline);
+			Gson gson = new Gson();
+			TimeLineResult result = gson.fromJson(timeline, TimeLineResult.class);
+			System.out.println(result.msg);
+			for (TimeLineResult.Data.Info info : result.data.info) {
+				System.out.println(info.text);
+				if (info.source != null) {
+					System.out.println("SOURCE:::  " + info.source.text);
+				}
+				System.out.println("===============================================================================");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
