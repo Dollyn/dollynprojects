@@ -19,7 +19,6 @@ import java.util.Scanner;
 
 import com.google.gson.Gson;
 import com.tencent.weibo.api.Statuses_API;
-import com.tencent.weibo.api.T_API;
 import com.tencent.weibo.beans.OAuth;
 import com.tencent.weibo.utils.OAuthClient;
 import com.tencent.weibo.utils.WeiBoConst;

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: QWeiboSDK
+Bundle-SymbolicName: QWeiboSDK
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .,
+ lib/commons-codec.jar,
+ lib/commons-httpclient-3.1.jar,
+ lib/commons-logging-1.1.jar,
+ lib/dom4j-1.6.1.jar
+Bundle-Vendor: UNKNOWN
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.tencent.weibo.api,
+ com.tencent.weibo.beans,
+ com.tencent.weibo.example,
+ com.tencent.weibo.utils

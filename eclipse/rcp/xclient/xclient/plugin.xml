@@ -37,7 +37,7 @@
       </view>
       <view
             allowMultiple="true"
-            class="xclient.TimelineView"
+            class="xclient.timeline.TimelineView"
             icon="icons/sample2.gif"
             id="xclient.stream"
             name="Time-line"
