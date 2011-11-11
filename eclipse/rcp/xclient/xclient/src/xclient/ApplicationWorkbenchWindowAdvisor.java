@@ -21,6 +21,9 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         configurer.setInitialSize(new Point(600, 400));
         configurer.setShowCoolBar(true);
         configurer.setShowStatusLine(false);
+        
+        System.setProperty("http.proxyHost", "180.96.19.25");
+        System.setProperty("http.proxyPort", "8080");
     }
     
 }
