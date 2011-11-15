@@ -167,6 +167,7 @@ public class TimelineView extends ViewPart {
 			Hyperlink nameLink = toolkit.createImageHyperlink(right, SWT.NONE);
 			nameLink.setText(info.source.nick);
 			nameLink.setLayoutData(new TableWrapData());
+			nameLink.setUnderlined(false);
 			
 			FormText text = toolkit.createFormText(right, true);
 			text.setText("<form><p>" + info.source.text + "</p></form> ", true, false);
