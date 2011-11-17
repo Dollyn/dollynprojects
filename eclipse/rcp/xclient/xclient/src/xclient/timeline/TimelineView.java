@@ -15,10 +15,13 @@ import org.apache.log4j.Logger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
@@ -53,9 +56,14 @@ public class TimelineView extends ViewPart {
 	private ScrolledForm form;
 	
 	private List<Image> images = new ArrayList<Image>();
+	private List<Font> fonts = new ArrayList<Font>();
+	private List<Color> colors = new ArrayList<Color>();
+	
+	private Color nickLinkColor;
 
 	@Override
 	public void createPartControl(Composite parent) {
+		nickLinkColor = new Color(Display.getCurrent(), new RGB(0, 119, 204));
 		toolkit = new FormToolkit(parent.getDisplay());
 		form = toolkit.createScrolledForm(parent);
 		form.setText("Hello, Weibo!");
@@ -110,8 +118,8 @@ public class TimelineView extends ViewPart {
 					@Override
 					public void paintControl(PaintEvent e) {
 						Rectangle rect = canvas.getClientArea();
-						e.gc.setBackground(Display.getCurrent().getSystemColor(SWT.COLOR_BLUE));
-						e.gc.fillRoundRectangle(0, 0, rect.width, 2, 1, 1);
+						e.gc.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_GRAY));
+						e.gc.drawLine(0, 0, rect.width, 0);
 					}
 				});
 				System.out.println("===============================================================================");
@@ -150,11 +158,7 @@ public class TimelineView extends ViewPart {
 		createUserNameComposite(right, info);
 		
 		try {
-			FormText text = toolkit.createFormText(right, true);
-			text.setText("<form><p>" + info.text + "</p></form> ", true, false);
-			text.setWhitespaceNormalized(true);
-			TableWrapData td = new TableWrapData();
-			text.setLayoutData(td);
+			createFormText(right, info);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -164,19 +168,26 @@ public class TimelineView extends ViewPart {
 			TableWrapData td = new TableWrapData();
 			sep.setLayoutData(td);
 			
-			Hyperlink nameLink = toolkit.createImageHyperlink(right, SWT.NONE);
-			nameLink.setText(info.source.nick);
-			nameLink.setLayoutData(new TableWrapData());
-			nameLink.setUnderlined(false);
+			createNickLink(right, info.source);
 			
-			FormText text = toolkit.createFormText(right, true);
-			text.setText("<form><p>" + info.source.text + "</p></form> ", true, false);
-			text.setWhitespaceNormalized(true);
-			td = new TableWrapData();
-			text.setLayoutData(td);
+			createFormText(right, info.source);
 		}
 		
 		return entryComposite;
+	}
+	
+	private void createNickLink(Composite parent, Info info) {
+		Hyperlink nameLink = toolkit.createImageHyperlink(parent, SWT.NONE);
+		nameLink.setText(info.nick);
+		nameLink.setLayoutData(new TableWrapData());
+		nameLink.setUnderlined(false);
+		
+		FontData labelFontData = new FontData("微软雅黑", 10, SWT.NORMAL);
+		Font font = new Font(Display.getCurrent(), labelFontData);
+		nameLink.setFont(font);
+		
+		nameLink.setForeground(nickLinkColor);
+		nameLink.setToolTipText(info.name);
 	}
 	
 	private void createHeadImage(Composite parent, Info info) {
@@ -192,7 +203,6 @@ public class TimelineView extends ViewPart {
 			ImageHyperlink link = toolkit.createImageHyperlink(parent, SWT.NONE);
 			link.setImage(image);
 			
-			TableWrapData twData = new TableWrapData();
 			link.setLayoutData(new TableWrapData());
 			imageInputStream.close();
 		} catch (MalformedURLException e) {
@@ -213,11 +223,19 @@ public class TimelineView extends ViewPart {
 		layout.bottomMargin = 0;
 		composite.setLayout(new TableWrapLayout());
 		
-		Hyperlink nameLink = toolkit.createImageHyperlink(composite, SWT.NONE);
-		nameLink.setText(info.nick);
-		nameLink.setLayoutData(new TableWrapData());
+		createNickLink(parent, info);
 	}
 	
+	private void createFormText(Composite parent, Info info) {
+		FormText text = toolkit.createFormText(parent, true);
+		text.setText("<form><p>" + info.text + "</p></form> ", true, false);
+		text.setWhitespaceNormalized(true);
+		TableWrapData td = new TableWrapData();
+		text.setLayoutData(td);
+		FontData fd = new FontData("Arial", 9, SWT.NONE);
+		Font font = new Font(Display.getCurrent(), fd);
+		text.setFont(font);
+	}
 	
 	 /**
 	  * Passing the focus request to the form.
@@ -234,6 +252,10 @@ public class TimelineView extends ViewPart {
 	  for (Image image : images) {
 		  image.dispose();
 	  }
+	  for (Font font : fonts) {
+		  font.dispose();
+	  }
+	  nickLinkColor.dispose();
 	  super.dispose();
 	 }
 
