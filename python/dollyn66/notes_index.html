@@ -24,7 +24,7 @@
 	    {% for note in notes %}
 	    <article class="note">
 	      <div>
-	      	<blockquote>{{ note.content|escape }}</blockquote>
+	      	<blockquote>{{note.content|escape|urlize|linebreaks}}</blockquote>
 	      </div>
 	      <footer class="note_footer">
 		      {% if note.author %}

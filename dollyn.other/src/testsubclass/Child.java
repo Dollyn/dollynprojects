@@ -12,6 +12,6 @@ public class Child extends Parent {
 		Parent cParent = new Child();
 		cParent.method();
 		Child child = new Child();
-		child.method();		
+		child.method();	
 	}
 }
