@@ -1,13 +1,17 @@
 package xclient_qweibo.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Video {
 	
-	/** ËõÂÔÍ¼ */
 	@Id
+	@GeneratedValue
+	private long id;
+	/** ËõÂÔÍ¼ */
 	private String picurl;
 	/** ²¥·ÅÆ÷µØÖ· */
 	private String player;

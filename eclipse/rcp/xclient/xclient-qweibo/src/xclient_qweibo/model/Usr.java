@@ -7,7 +7,7 @@ import javax.persistence.Id;
  * 帐号到昵称的映射关系
  */
 @Entity
-public class User {
+public class Usr {
 
 	/** 帐号(id) */
 	@Id
