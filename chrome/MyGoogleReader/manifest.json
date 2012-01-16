@@ -1,0 +1,11 @@
+{
+  "name": "Color google reader",
+  "version": "1.0.0",
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/reader/*"],
+	  "js" : ["jquery-1.7.1.min.js", "content.js"],
+	  "run_at" : "document_idle"
+    }
+  ]
+}
