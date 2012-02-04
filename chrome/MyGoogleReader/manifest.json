@@ -1,5 +1,5 @@
 {
-  "name": "Color google reader",
+  "name": "My google reader",
   "version": "1.0.0",
   "content_scripts": [
     {
